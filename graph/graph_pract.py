@@ -31,7 +31,7 @@ class Graph:
         from_found = None
         to_found = None
 
-        # checking  "city_from" and "city_to" already exist in our list of cities
+        # checking whether "city_from" and "city_to" already exist in our list of cities
         for city_obj in self.cities:
             if city_obj.name == city_from:
                 from_found = city_obj
