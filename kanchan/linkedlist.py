@@ -17,11 +17,34 @@ class Linked_list:
             print(temp.data)
             temp = temp.next
 
-    def start_node(self, value):
+    def add_start_node(self, value):
         newnode = Node(value)
         temp = self.head
         self.head = newnode
         newnode.next = temp
+
+    def add_position(self, position, value):
+        newnode = Node(value)
+        temp = self.head
+        count = 1
+        while(temp != None):
+            count += 1
+            if count == position:
+                newnode.next = temp.next
+                temp.next = newnode
+                return
+
+            temp = temp.next
+        print("Not found")
+
+    def add_last(self, value):
+        newnode = Node(value)
+        temp = self.head
+        while(True):
+            if temp.next == None:
+                temp.next = newnode
+                return
+            temp = temp.next
 
 
 if __name__ == "__main__":
@@ -39,6 +62,7 @@ if __name__ == "__main__":
 
     print()
 
-    list1.start_node(9)
-
+    # list1.start_node(9)
+   # list1.add_position(2, 56)
+    list1.add_last(22)
     list1.Traversal()
