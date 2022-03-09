@@ -9,13 +9,16 @@ class Linked_list:
         self.head = None
 
     def Traversal(self):
+        count = 0
         if self.head is None:
             print("List is empty")
             return
         temp = self.head
         while(temp != None):
             print(temp.data)
+            count += 1
             temp = temp.next
+        print(f"Total number of nodes {count}")
 
     def add_start_node(self, value):
         newnode = Node(value)
