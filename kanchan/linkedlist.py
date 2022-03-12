@@ -1,39 +1,73 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        self.right = None
-        self.left = None
-
- # To print the nodes of tree
+        self.next = None
 
 
-def inorder_traverse(root):
-    if root:
-        inorder_traverse(root.left)
-        print(root.data)
-        inorder_traverse(root.right)
+class Linked_list:
+    def __init__(self):
+        self.head = None
 
+# A function to print the nodes
 
-def preorder_traversal(root):
-    if root:
-        print(root.data)
-        preorder_traversal(root.left)
-        preorder_traversal(root.right)
+    def Traversal(self):
+        count = 0
+        if self.head is None:
+            print("List is empty")
+            return
+        temp = self.head
+        while(temp != None):
+            print(temp.data)
+            count += 1
+            temp = temp.next
+        print(f"Total number of nodes {count}")
 
+    def add_start_node(self, value):
+        newnode = Node(value)
+        temp = self.head
+        self.head = newnode
+        newnode.next = temp
 
-def postorder_traversal(root):
-    if root:
-        postorder_traversal(root.left)
-        postorder_traversal(root.right)
-        print(root.data)
+    def add_position(self, position, value):
+        newnode = Node(value)
+        temp = self.head
+        count = 1
+        while(temp != None):
+            count += 1
+            if count == position:
+                newnode.next = temp.next
+                temp.next = newnode
+                return
+
+            temp = temp.next
+        print("Not found")
+
+    def add_last(self, value):
+        newnode = Node(value)
+        temp = self.head
+        while(True):
+            if temp.next == None:
+                temp.next = newnode
+                return
+            temp = temp.next
 
 
 if __name__ == "__main__":
+    node1 = Node(4)
+    node2 = Node(5)
+    node3 = Node(6)
 
-    root = Node(1)
-    root.left = Node(12)
-    root.left.left = Node(5)
-    root.left.right = Node(6)
-    root.right = Node(9)
+    list1 = Linked_list()
 
-    postorder_traversal(root)
+    list1.head = node1
+    node1.next = node2
+    node2.next = node3
+
+    list1.Traversal()
+
+    print()
+
+    # list1.start_node(9)
+   # list1.add_position(2, 56)
+    list1.add_last(22)
+    list1.Traversal()
