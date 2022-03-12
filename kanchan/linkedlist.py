@@ -7,7 +7,7 @@ class Node:
 class Linked_list:
     def __init__(self):
         self.head = None
-        
+
 # A function to print the nodes
 
     def Traversal(self):
