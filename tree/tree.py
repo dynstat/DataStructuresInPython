@@ -7,10 +7,11 @@ class Node:
         self.right = None
 
     def __repr__(self) -> str:
-        return self.data
+        return str(self.data)
 
     def __str__(self) -> str:
-        return self.__repr__()
+        # return self.__repr__()
+        return "hehe"
 
 
 def logic(root):
@@ -25,6 +26,16 @@ def add_new(root, value):
     if root is None:
         root = Node(value)
         return
+
+
+def depth(root):
+
+    # return 1 + max(depth(root.left), depth(root.right)) if tree else 0
+
+    if tree is not None:
+        return 1 + max(depth(root.left), depth(root.right))
+    else:
+        return 0
 
     store = []
     store.append(root)
@@ -55,8 +66,8 @@ if __name__ == "__main__":
     root.right.left = Node(11)
 
     # root.right.right = Node(9)
-
-    logic(root)
-    print("")
-    add_new(root, 15)
-    logic(root)
+    print(Node(7))
+    # logic(root)
+    # print("")
+    # add_new(root, 15)
+    # logic(root)
