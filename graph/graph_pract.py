@@ -1,3 +1,4 @@
+# Example of graph using cities and roads as vertices and edges respectively.
 class City:  # Vertex
     def __init__(self, city_name):
         self.name = city_name
