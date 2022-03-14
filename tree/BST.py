@@ -12,10 +12,10 @@ def putValueInBST(root, val):
     if root is None:
         root = Node(val)
     elif val > root.data:
-        y = root.right
+        y = root.right.data
         putValueInBST(y, val)
     else:
-        putValueInBST(root.left, val)
+        putValueInBST(root.left.data, val)
 
 
 # Working function
@@ -23,9 +23,9 @@ def working_putValueInBST(root, val):
     if root is None:
         return Node(val)
     elif val > root.data:
-        root.right = working_putValueInBST(root.right, val)
+        root.right.data = working_putValueInBST(root.right.data, val)
     else:
-        root.left = working_putValueInBST(root.left, val)
+        root.left.data = working_putValueInBST(root.left.data, val)
     return root
 
 
@@ -44,26 +44,56 @@ def print_tree(r):
     print_tree(r.right)
 
 
+# a function to check whether the given tree is a BST or not (with additional info.. helpful for debug or understanding)
+def check_BST(root):
+    print(f"MAIN ROOT = {root.data}")
+    if root is None:
+        return True
+    if root.left is None and root.right is None:
+        print(f"Both {root.data}.left and {root.data}.right are None")
+        return True
+    if root.left is not None and root.right is None:
+        print(f"only left Node {root.left.data} exists ")
+        if root.left.data < root.data:
+            return check_BST(root.left)
+    if root.right is not None and root.left is None:
+        print(f"only right Node {root.right.data} exists ")
+        if root.right.data > root.data:
+            return check_BST(root.right)
+    # two children confirmed
+    if root.left.data < root.data and root.right.data > root.data:
+        print(
+            f"root = {root.data}, root.left = {root.left.data}, root.right = {root.right.data}")
+        return(check_BST(root.left) and check_BST(root.right))
+
+    return False
+
+
 # main driver code
 if __name__ == "__main__":
-    val = 7  # value to add into the tree
+    val = 22  # value to add into the tree
     ##########################################
     # creating a Tree
-    root = Node(5)
-    root.left = Node(4)
-    root.right = Node(6)
+    root = Node(8)
+    root.left = Node(3)
+    root.right = Node(10)
+    root.left.left = Node(1)
+    root.left.right = Node(6)
+    root.left.right.left = Node(4)
     # ##########################################
-    print("Initial Tree")
-    print_tree(root)  # to print a tree
-    print("\nAfter putValueInBST:")
+    # print("Initial Tree")
+    # print_tree(root)  # to print a tree
+    # print("\nAfter putValueInBST:")
 
-    # Expecting the value to be added... but doesn't work
-    putValueInBST(root, val)
-    print_tree(root)
-    print("\nAfter working_putValueInBST:")
-    working_putValueInBST(root, val)
-    print_tree(root)
-    print("\nAfter put_val_manually:")
-    put_val_manually(root, val)
-    print_tree(root)
-    print("\n")
+    # # Expecting the value to be added... but doesn't work
+    # putValueInBST(root, val)
+    # print_tree(root)
+    # print("\nAfter working_putValueInBST:")
+    # working_putValueInBST(root, val)
+    # print_tree(root)
+    # print("\nAfter put_val_manually:")
+    # put_val_manually(root, val)
+    # print_tree(root)
+    # print("\n")
+
+    print(check_BST(root))
