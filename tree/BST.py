@@ -47,23 +47,28 @@ def print_tree(r):
 # a function to check whether the given tree is a BST or not (with additional info.. helpful for debug or understanding)
 def check_BST(root):
     print(f"MAIN ROOT = {root.data}")
+    # Wether the tree is empty or not
     if root is None:
         return True
+    # check if  leaf Node i.e. the node without any child
     if root.left is None and root.right is None:
+        # for debugging
         print(f"Both {root.data}.left and {root.data}.right are None")
         return True
+    # check if the Node has only left child
     if root.left is not None and root.right is None:
-        print(f"only left Node {root.left.data} exists ")
+        print(f"only left Node {root.left.data} exists ")  # for debugging
         if root.left.data < root.data:
             return check_BST(root.left)
+    # check if the Node has only right child
     if root.right is not None and root.left is None:
-        print(f"only right Node {root.right.data} exists ")
+        print(f"only right Node {root.right.data} exists ")  # for debugging
         if root.right.data > root.data:
             return check_BST(root.right)
-    # two children confirmed
+    # two children confirmed, so check if left child data is lesser than root and right child data is greater than root
     if root.left.data < root.data and root.right.data > root.data:
         print(
-            f"root = {root.data}, root.left = {root.left.data}, root.right = {root.right.data}")
+            f"root = {root.data}, root.left = {root.left.data}, root.right = {root.right.data}")  # for debugging
         return(check_BST(root.left) and check_BST(root.right))
 
     return False
@@ -96,4 +101,5 @@ if __name__ == "__main__":
     # print_tree(root)
     # print("\n")
 
+    # calling the function
     print(check_BST(root))
