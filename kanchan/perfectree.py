@@ -9,7 +9,7 @@ class Node:
         self.left = None
         self.right = None
 
-# to find the depth of tree.
+# to find the depth of left leaning tree.
 
 
 def depth_tree(root):
