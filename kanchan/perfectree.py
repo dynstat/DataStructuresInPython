@@ -73,6 +73,11 @@ def height_finder(root, val_search):
     return height
 
 
+
+
+
+
+
 if __name__ == "__main__":
     root = Node(1)
     root.left = Node(2)
@@ -89,6 +94,7 @@ if __name__ == "__main__":
     #print(is_perfect_tree(root, depth, level=0))
 
     #print(level_finder(root, to_find=8, level=0))
-    print(find_level(root, to_find=8, level=0))
+    #print(find_level(root, to_find=8, level=0))
 
-    print(height_finder(root, 8))
+    #print(height_finder(root, 8))
+    print(print_alternate(root))
