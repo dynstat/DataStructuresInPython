@@ -10,8 +10,7 @@ class Node:
         return str(self.data)
 
     def __str__(self) -> str:
-        # return self.__repr__()
-        return "hehe"
+        return self.__repr__()
 
 
 def logic(root):
@@ -26,20 +25,8 @@ def add_new(root, value):
     if root is None:
         root = Node(value)
         return
-
-
-def depth(root):
-
-    # return 1 + max(depth(root.left), depth(root.right)) if tree else 0
-
-    if tree is not None:
-        return 1 + max(depth(root.left), depth(root.right))
-    else:
-        return 0
-
-    store = []
-    store.append(root)
-    while (len(store) != 0):
+    store = [root]
+    while store:
         # store -- > [root]
         root = store.pop(0)
         # store -- > []
@@ -57,6 +44,26 @@ def depth(root):
     # end of addnew function
 
 
+# to find the depth of any binary tree
+def depth(root):
+    # creating an inner function
+    def inner(root):
+        if root is not None:
+            return 1 + (max(inner(root.left), inner(root.right)))
+        else:
+            return 0
+    ans = inner(root)
+    return ans
+
+
+# another method to find the depth of a binary tree
+def depth_(root, level=0):
+    if root is None:
+        return level
+    else:
+        return max(depth_(root.left, level+1), depth_(root.right, level+1))
+
+
 if __name__ == "__main__":
     root = Node(7)
     root.left = Node(5)
@@ -66,8 +73,9 @@ if __name__ == "__main__":
     root.right.left = Node(11)
 
     # root.right.right = Node(9)
-    print(Node(7))
+    # print(Node(7))
     # logic(root)
     # print("")
     # add_new(root, 15)
     # logic(root)
+    print(depth_(root))
