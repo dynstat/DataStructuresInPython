@@ -1,12 +1,15 @@
 # a perfect is a tree which has leafnodes at same level.
 
+from ast import literal_eval
+
+
 class Node:
     def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
 
-# to find the depth of tree.
+# to find the depth of left leaning tree.
 
 
 def depth_tree(root):
@@ -30,6 +33,50 @@ def is_perfect_tree(root, depth, level=0):
     if root.left is not None and root.right is not None:
         return (is_perfect_tree(root.left, depth, level+1) and (is_perfect_tree(root.right, depth, level+1)))
 
+# to check the level of given node.
+
+
+def level_finder(root, to_find, level=0):
+    if to_find == root.data:
+        print(f"node found at level = {level}")
+        return level
+    if root.left != None and root.right != None:
+        print(f"child name {root.left.data} and {root.right.data}")
+        return level_finder(root.left, to_find, level+1) + level_finder(root.right, to_find, level+1)
+    if root.left != None and root.right is None:
+        print(f"left child {root.left.data}")
+        return level_finder(root.left, to_find, level+1)
+    if root.right != None and root.left is None:
+        print(f"right child {root.right.data}")
+        return level_finder(root.right, to_find, level+1)
+    print("returning 0")
+    return 0
+
+
+def find_level(root, to_find, level=0):
+    if root.data == to_find:
+        return level
+    if root.left != None and root.right != None:
+        return find_level(root.left, to_find, level+1)*find_level(root.right, to_find, level+1)
+    if root.left != None and root.right is None:
+        return find_level(root.left, to_find, level+1)
+    if root.right != None and root.left is None:
+        return find_level(root.right, to_find, level+1)
+    return 1
+
+
+def height_finder(root, val_search):
+    depth = depth_tree(root)
+    level = find_level(root, to_find=val_search, level=0)
+    print("depth", depth)
+    height = depth-level
+    return height
+
+
+
+
+
+
 
 if __name__ == "__main__":
     root = Node(1)
@@ -41,7 +88,13 @@ if __name__ == "__main__":
     root.right.right = Node(7)
     root.right.right.left = Node(8)
 
-    depth = (depth_tree(root))
-    print(depth)
+    #depth = (depth_tree(root))
+   # print(depth)
 
-    print(is_perfect_tree(root, depth, level=0))
+    #print(is_perfect_tree(root, depth, level=0))
+
+    #print(level_finder(root, to_find=8, level=0))
+    #print(find_level(root, to_find=8, level=0))
+
+    #print(height_finder(root, 8))
+    print(print_alternate(root))
