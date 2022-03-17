@@ -1,5 +1,8 @@
 # Binary Tree
 # creating a Node for binary Tree
+from numpy import inner
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -13,12 +16,12 @@ class Node:
         return self.__repr__()
 
 
-def logic(root):
+def traverse(root):
     if root is None:
         return
-    logic(root.left)
+    traverse(root.left)
     print(root.data, end=' ')
-    logic(root.right)
+    traverse(root.right)
 
 
 def add_new(root, value):
@@ -65,12 +68,13 @@ def depth_(root, level=0):
 
 
 if __name__ == "__main__":
-    root = Node(7)
-    root.left = Node(5)
-    root.right = Node(4)
-    root.left.left = Node(3)
-    root.left.right = Node(2)
-    root.right.left = Node(11)
+    root = Node(1)
+    root.left = Node(2)
+    root.right = Node(3)
+    root.left.left = Node(4)
+    root.left.right = Node(5)
+    root.right.right = Node(6)
+    root.right.right.left = Node(7)
 
     # root.right.right = Node(9)
     # print(Node(7))
@@ -78,4 +82,4 @@ if __name__ == "__main__":
     # print("")
     # add_new(root, 15)
     # logic(root)
-    print(depth_(root))
+    depth_(root)
