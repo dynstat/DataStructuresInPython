@@ -16,6 +16,16 @@ def alt_print_tree(root, level=1):
         alt_print_tree(root.right, level+1)
 
 
+# a function to print nodes in zigzag pattern from top to bottom
+def zigzag(root):
+    if root:
+        print(root.data)
+        if root.left:
+            print(root.left.data)
+            if root.left.right:
+                zigzag(root.left.right)
+
+
 if __name__ == "__main__":
     root = Node(1)
     root.left = Node(2)
@@ -33,4 +43,5 @@ if __name__ == "__main__":
     root.right.right.left = Node(14)
     root.right.right.right = Node(15)
 
-    alt_print_tree(root)
+    # alt_print_tree(root)
+    zigzag(root)
