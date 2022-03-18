@@ -6,9 +6,11 @@ class Node:
         self.next = None
 
 
+# head of a linked List created
 LinkedList_head = None
 
 
+# creating a traversal function and passing the head of the linked list as its parameter
 def print_list(head: Node):
     if head is None:
         print("List is Empty !!")
