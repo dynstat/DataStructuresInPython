@@ -24,6 +24,9 @@ class LinkedList:
 
     def insert_last(self, val):
         newNode = Node(val)
+        if self.head is None:
+            self.head = newNode
+            return
         temp = self.head
         while (True):
             if temp.next is None:
@@ -58,12 +61,12 @@ if __name__ == "__main__":
 
     list1.traverse()
     print("\n\n")
-    list1.insertt(22)
-    list1.traverse()
-    print("\n\n")
+    # list1.insertt(22)
+    # list1.traverse()
+    # print("\n\n")
     list1.insert_last(100)
     list1.traverse()
     print("\n\n")
-    list1.delete(1008493598)
-    list1.traverse()
-    print(locals(), '', '')
+    # list1.delete(1008493598)
+    # list1.traverse()
+    # print(locals(), '', '')
