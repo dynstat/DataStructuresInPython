@@ -10,7 +10,7 @@ class Node:
 LinkedList_head = None
 
 
-# creating a traversal function and passing the head of the linked list as its parameter
+# a traversal function and passing the head of the linked list as its parameter
 def print_list(head: Node):
     if head is None:
         print("List is Empty !!")
@@ -21,6 +21,7 @@ def print_list(head: Node):
         temp = temp.next
 
 
+# function to add a new node at the end of the Linkedlist
 def add_last(head: Node, val: int):
     newNode = Node(val)
     if head is None:
