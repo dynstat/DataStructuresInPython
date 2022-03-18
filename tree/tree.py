@@ -1,7 +1,5 @@
 # Binary Tree
 # creating a Node for binary Tree
-from numpy import inner
-
 
 class Node:
     def __init__(self, data):
