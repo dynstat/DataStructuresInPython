@@ -1,3 +1,5 @@
+# Not creating a LinkedList class, and creating global functions to use LinkedList
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -13,11 +15,21 @@ def print_list(head: Node):
         return
     temp = head
     while(temp != None):
-        print(temp.data)
+        print(temp.data, end="")
         temp = temp.next
 
 
-def add_last(head: Node, val):
+def add_last(head: Node, val: int):
+    newNode = Node(val)
+    if head is None:
+        head = newNode
+        return
+    temp = head
+    while(True):
+        if temp.next is None:
+            temp.next = newNode
+            break
+        temp = temp.next
 
 
 if __name__ == "__main__":
@@ -29,4 +41,7 @@ if __name__ == "__main__":
     LinkedList_head = one
     one.next = two
     two.next = three
+    print_list(LinkedList_head)
+    print()
+    add_last(LinkedList_head, 8)
     print_list(LinkedList_head)
