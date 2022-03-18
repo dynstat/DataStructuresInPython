@@ -26,25 +26,26 @@ def add_last(head: Node, val: int):
     newNode = Node(val)
     if head is None:
         head = newNode
-        return
+        return head
     temp = head
     while(True):
         if temp.next is None:
             temp.next = newNode
             break
         temp = temp.next
+    return head
 
 
 if __name__ == "__main__":
 
-    one = Node(5)
-    two = Node(6)
-    three = Node(7)
+    # one = Node(5)
+    # two = Node(6)
+    # three = Node(7)
 
-    LinkedList_head = one
-    one.next = two
-    two.next = three
+    LinkedList_head = None
+    # one.next = two
+    # two.next = three
     print_list(LinkedList_head)
     print()
-    add_last(LinkedList_head, 8)
+    LinkedList_head = add_last(LinkedList_head, 8)
     print_list(LinkedList_head)
