@@ -21,6 +21,23 @@ def traverse(root):
     print(root.data, end=' ')
     traverse(root.right)
 
+# printing a tree in a  cool way
+
+
+def print_tree(someTree: Node, level=0):
+    # whether the node is None or not
+    if someTree is None:
+        print(level * "\t"+".")
+        return
+    # whether the node is a leaf or not
+    elif (someTree.left is None and someTree.right is None):
+        print("\t"*level+str(someTree.data))
+    # Neither a leaf nor a None, i.e an balanced binary tree
+    else:
+        print_tree(someTree.right, level=level+1)
+        print("\t"*level + str(someTree.data))
+        print_tree(someTree.left, level=level+1)
+
 
 def add_new(root, value):
     if root is None:
@@ -76,8 +93,8 @@ if __name__ == "__main__":
 
     # root.right.right = Node(9)
     # print(Node(7))
-    # logic(root)
-    # print("")
-    # add_new(root, 15)
-    # logic(root)
-    depth_(root)
+    print_tree(root)
+    print("")
+    add_new(root, 15)
+    print_tree(root)
+    # depth_(root)
