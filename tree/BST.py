@@ -31,9 +31,9 @@ def working_putValueInBST(r, val):
     if r is None:
         return Node(val)
     elif val > root.data:
-        r.right.data = working_putValueInBST(r.right, val)
+        r.right = working_putValueInBST(r.right, val)
     else:
-        r.left.data = working_putValueInBST(r.left, val)
+        r.left = working_putValueInBST(r.left, val)
     return r
 
 
