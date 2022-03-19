@@ -32,7 +32,7 @@ def parse_tree(a_tuple_tree):
 def print_tree(someTree: Node, level=0):
     # whether the node is None or not
     if someTree is None:
-        print(level * "\t"+"0")
+        print(level * "\t"+".")
         return
     # whether the node is a leaf or not
     elif (someTree.left is None and someTree.right is None):
