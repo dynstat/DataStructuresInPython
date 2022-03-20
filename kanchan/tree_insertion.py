@@ -15,7 +15,7 @@ def Traverse(root):
 def print_tree(someTree: Node, level=0):
     # whether the node is None or not
     if someTree is None:
-        print(level * "\t"+"0")
+        print(level * "\t"+".")
         return
     # whether the node is a leaf or not
     elif (someTree.left is None and someTree.right is None):
@@ -41,7 +41,25 @@ def insertion(root, val):
             root.left = newnode
             return
         insertion(root.left, val)
-        #insertion(root.right, val)
+        # insertion(root.right, val)
+
+
+def insert(root, val):
+    store = [root]
+    newnode = Node(val)
+    while (store):
+        r = store.pop()
+        if r is None:
+            r = newnode
+            return r
+        if r.left is None:
+            r.left = newnode
+            break
+        store.append(r.left)
+        if r.right is None:
+            r.right = newnode
+            break
+        store.append(r.right)
 
 
 if __name__ == "__main__":
@@ -64,5 +82,6 @@ if __name__ == "__main__":
     print("before insertion")
     print_tree(root)
     print("after insertion")
-    insertion(root, val=10)
+    # insertion(root, val=10)
+    insert(root, val=10)
     print_tree(root)
