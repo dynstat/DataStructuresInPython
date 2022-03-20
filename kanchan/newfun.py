@@ -5,6 +5,7 @@ class Node:
         self.right = None
 
 
+# Function to print tree nodes in zigzag pattern from top (root node) to bottom
 def zig_zag(root):
     if root is not None:
         print(root.data)
@@ -15,7 +16,7 @@ def zig_zag(root):
                 if root.left.right.left:
                     zig_zag(root.left.right.left)
 
-    # zig_zag(root.left)
+    # zig_zag(root.left)  #---> WRONG
 
 
 if __name__ == "__main__":
