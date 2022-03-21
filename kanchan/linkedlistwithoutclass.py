@@ -6,12 +6,16 @@ class Node:
 
 linked_list_head = None
 
+# to print data of a tree....
+
 
 def Traverse(linked_list_head):
     temp = linked_list_head
     while(temp != None):
         print(temp.data)
         temp = temp.next
+
+# a function to insert a node in the end of list.
 
 
 def Last_add(linked_list_head, data):
