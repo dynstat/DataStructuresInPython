@@ -70,6 +70,6 @@ def tree_to_tuple(rootNode: Node):
 if __name__ == "__main__":
     tree1 = (parse_tree(tree_tuple))
     print_tree(tree1)
-    r = tree_to_tuple(tree1)
+    tuple_tree = tree_to_tuple(tree1)
     print(store)
-    print(r)
+    print(tuple_tree)
