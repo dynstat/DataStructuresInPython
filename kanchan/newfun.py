@@ -4,6 +4,8 @@ class Node:
         self.left = None
         self.right = None
 
+# to print data of tree in zig zig fashion.......
+
 
 def zig_zag(root):
     if root is not None:
@@ -14,8 +16,6 @@ def zig_zag(root):
                 print(root.left.right.data)
                 if root.left.right.left:
                     zig_zag(root.left.right.left)
-
-    # zig_zag(root.left)
 
 
 if __name__ == "__main__":

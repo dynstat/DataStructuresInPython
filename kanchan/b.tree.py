@@ -5,6 +5,8 @@ class Node:
         self.left = None
         self.right = None
 
+# to check whether it is full tree or not?
+
 
 def isfullTree(root):
     if root is None:
