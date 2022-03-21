@@ -12,14 +12,12 @@ class Node:
 # Creating a binaryTree class
 class binary_tree:
     # in-order traversal i.e. L->r->R
-    def __init__(self, rootNode: Node):
+    def __init__(self, rootNode: Node = None):
         self.rootNode = rootNode
 
-    def in_trav(self):
-        self.inorder_traversal(self.rootNode)
-
     # ---------------------------------------------------------------------------------
-    # or if you want to run this without parameter, use self.rootNode instead of rootNode and self.rootNode.inorder_traversal()
+    # or if you want to run this without parameter, create a wrapper function
+
     def inorder_traversal(self, rootNode):
         if rootNode is None:
             return
@@ -28,8 +26,12 @@ class binary_tree:
         print(rootNode.value, end=" ")
         self.inorder_traversal(rootNode.right)
 
+    # wrapper function for inorder_traversal
+    def in_trav(self):
+        self.inorder_traversal(self.rootNode)
     # ---------------------------------------------------------------------------------
     # to create a method without self, we need to override the method as Staticmethod
+
     @staticmethod
     def check_empty_left(rootNode):
         if rootNode.left is None:
@@ -63,6 +65,42 @@ class binary_tree:
                     tempTree.right = Node(value)
                     flag = 0
 # ---------------------------------------------------------------------------------
+    # method to insert a new node in inorder way
+
+    def insert_inorder_recursive(self, rootNode, value):
+        if rootNode is None:
+            rootNode = Node(value)
+            return
+        if rootNode.left is None:
+            rootNode.left = Node(value)
+            return
+        self.insert_inorder_recursive(rootNode.left, value)
+        # if rootNode.right is None:
+        #     rootNode.right = Node(value)
+        #     return
+
+    # wrapper function for insert_inorder_recursive method
+
+    def insert_recur(self, value_to_add):
+        self.insert_inorder_recursive(self.rootNode, value_to_add)
+    # printing a tree in a  cool way
+
+    def print_tree(self, rootNode: Node, level=0):
+        # whether the node is None or not
+        if rootNode is None:
+            print(level * "\t"+".")
+            return
+        # whether the node is a leaf or not
+        elif (rootNode.left is None and rootNode.right is None):
+            print("\t"*level+str(rootNode.value))
+        # Neither a leaf nor a None, i.e an balanced binary tree
+        else:
+            self.print_tree(rootNode.right, level=level+1)
+            print("\t"*level + str(rootNode.value))
+            self.print_tree(rootNode.left, level=level+1)
+
+    def print_tree_wrapper(self):
+        self.print_tree(self.rootNode)
 
 
 # main driver code
@@ -76,8 +114,10 @@ if __name__ == "__main__":
 
     # inorder_traversal(root)
     bTree1 = binary_tree(root)
-    bTree1.in_trav()
+    bTree1.print_tree_wrapper()  # printing tree
+
     print("\n")
-    bTree1.insert(root, 12)
-    bTree1.in_trav()
+    # inserting 12 as node, in the left most bottom of the tree
+    bTree1.insert_recur(12)
+    bTree1.print_tree_wrapper()  # printing tree
 # -----------------------------------------OVER-----------------------------------------------
