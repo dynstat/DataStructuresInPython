@@ -39,6 +39,7 @@ def print_tree(someTree: Node, level=0):
         print_tree(someTree.left, level=level+1)
 
 
+# function to add new Node wherever we first find an empty Node closest to the root Node
 def add_new(root, value):
     if root is None:
         root = Node(value)
