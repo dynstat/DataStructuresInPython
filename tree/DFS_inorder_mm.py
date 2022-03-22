@@ -16,7 +16,7 @@ class binary_tree:
         self.rootNode = rootNode
 
     # ---------------------------------------------------------------------------------
-    # or if you want to run this without parameter, create a wrapper function
+    # or if you want to run this without parameter, create a wrapper function and pass self.rootNode as the root node
 
     def inorder_traversal(self, rootNode):
         if rootNode is None:
@@ -83,6 +83,7 @@ class binary_tree:
 
     def insert_recur(self, value_to_add):
         self.insert_inorder_recursive(self.rootNode, value_to_add)
+
     # printing a tree in a  cool way
 
     def print_tree(self, rootNode: Node, level=0):
