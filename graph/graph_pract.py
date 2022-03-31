@@ -9,11 +9,11 @@ class City:  # Vertex
 
 
 class Road:  # Edge
-    def __init__(self, road_name, city_from, city_to, r_weight=None):
+    def __init__(self, road_name, city_from, city_to, r_length=None):
         self.road_name = road_name
         self.city_from = city_from
         self.city_to = city_to
-        self.road_weight = r_weight
+        self.road_length = r_length
 
     def __repr__(self) -> str:
         return self.road_name
