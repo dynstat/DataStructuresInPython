@@ -1,10 +1,12 @@
-# to check whether a given tree is bst or not.
+
 
 class Node:
     def __init__(self, data):
         self.data = data
         self.left = None
         self.right = None
+
+# to check whether a given tree is bst or not.
 
 
 def is_binaryTree(root):
@@ -15,8 +17,6 @@ def is_binaryTree(root):
 
     if root.left.data < root.data and root.right.data > root.data:
         return (is_binaryTree(root.left)) and is_binaryTree(root.right)
-
-# to search in bst
 
 
 def bst_search(data, root):
