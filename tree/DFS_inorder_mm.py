@@ -6,10 +6,10 @@ class Node:
         self.value = data
         self.right = None
 
-
-
 # ---------------------------------------------------------------------------------
 # Creating a binaryTree class
+
+
 class binary_tree:
     # in-order traversal i.e. L->r->R
     def __init__(self, rootNode: Node = None):
