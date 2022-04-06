@@ -15,6 +15,11 @@ class Graph:
                     edges_list.append((key, val))
         return edges_list
 
+    def add_edge(self, edge_to_add: tuple):  # edge_to_add = ('a','d')
+        v1, v2 = edge_to_add
+        self.graph[v1].append(v2)
+        self.graph[v2].append(v1)
+
 
 if __name__ == "__main__":
     # data of the graph in dictionary form
@@ -26,4 +31,6 @@ if __name__ == "__main__":
         "e": ["d"]
     }
     g1 = Graph(graph_elem=graph_elements)
+    print(g1.show_edges())
+    g1.add_edge(('a', 'd'))
     print(g1.show_edges())
