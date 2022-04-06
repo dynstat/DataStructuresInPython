@@ -8,9 +8,9 @@ class Graph:
         #  [0, 0, 0, 0, 0],
         #  [0, 0, 0, 0, 0],
         #  [0, 0, 0, 0, 0]]
-        for i in range(size):
+        for _ in range(size):
             khali_list = []
-            for j in range(size):
+            for _ in range(size):
                 khali_list.append(0)
             self.matrix.append(khali_list)
         # print(self.matrix)
