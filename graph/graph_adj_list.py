@@ -14,10 +14,22 @@ class Graph:
         adj_node.next = self.array[src]
         self.array[src] = adj_node
 
+        adj_node = Node(src)
+        adj_node.next = self.array[des]
+        self.array[des] = adj_node
+
+    def print_graph(self):
+        for i in range(self.size):
+            print(f"Vertex {i}:", end="")
+            temp = self.array[i]
+            while temp:
+                print(f" -> {temp.vertex}", end="")
+                temp = temp.next
+            print(" \n")
+
 
 if __name__ == "__main__":
     g1 = Graph(4)
-
     g1.print_graph()
 
     g1.add_edge(0, 1)
