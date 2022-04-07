@@ -4,6 +4,9 @@ class City:  # Vertex
         self.name = city_name
         self.roads = []
 
+    def __repr__(self):
+        return self.name
+
     def __repr__(self) -> str:
         return self.name
 
