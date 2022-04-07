@@ -7,9 +7,6 @@ class City:  # Vertex
     def __repr__(self):
         return self.name
 
-    def __repr__(self) -> str:
-        return self.name
-
 
 class Road:  # Edge
     def __init__(self, road_name, city_from, city_to, r_length=None):
