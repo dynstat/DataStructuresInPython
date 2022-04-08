@@ -18,11 +18,6 @@ def zig_zag(root):
                 if root.left.right.left:
                     zig_zag(root.left.right.left)
 
-<<<<<<< HEAD
-=======
-    # zig_zag(root.left)  #---> WRONG
-
->>>>>>> 369f4bcbc98a4a2f1ec6fc894b91ba19a52b63d1
 
 if __name__ == "__main__":
     root = Node(1)
