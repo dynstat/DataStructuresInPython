@@ -7,28 +7,43 @@ class Node:
         self.value = val
         self.next = None
 
+    def __repr__(self) -> str:
+        return str(self.value)
+
 
 class LinkedList:
     def __init__(self):
-        self.head = None
+        self.head: Node = None
 
     # the address storing method
     def isCyclic(self):
-        khali_list: set = {}
+        empty_set: set = set()  # creating an empty set
         temp = self.head
         while temp:
             temp_address = id(temp)
-            if temp_address not in khali_list:
-                khali_list.add(temp_address)
+            if temp_address not in empty_set:
+                empty_set.add(temp_address)
             else:
                 return True
             temp = temp.next
         return False
     # using two pointer method
 
-    def is_cyclic(self):
+    def is_Cyclic(self):
+        if self.head is None:
+            return False
         s = self.head
         f = self.head
+        while f:
+            if s is None:
+                return False
+            s = s.next
+            if f is None:
+                return False
+            f = f.next.next
+            if f == s:
+                return True
+        return False
 
 
 if __name__ == "__main__":
@@ -44,6 +59,6 @@ if __name__ == "__main__":
     Node1.next = Node2
     Node2.next = Node3
     Node3.next = Node4
-    # Node4.next = Node2
+    Node4.next = Node2
 
-    print(list1.isCyclic())
+    print(list1.is_Cyclic())
