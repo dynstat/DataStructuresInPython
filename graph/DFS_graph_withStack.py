@@ -38,8 +38,7 @@ def traverse_graph(some_graph: Dict):
     length = len(stack)
     # for vx, edge_list in some_graph.items():
     visited = set()
-    while len(stack) != 0:
-        length = len(stack)
+    while stack:
         top = stack.pop()
         if top not in visited:
             print(top)
