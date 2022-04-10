@@ -35,10 +35,11 @@ class LinkedList:
         s = self.head
         f = self.head
         while f:
-            if s is None:
+            if s.next is None:
                 return False
             s = s.next
-            if f is None:
+
+            if f.next is None:
                 return False
             f = f.next.next
             if f == s:
