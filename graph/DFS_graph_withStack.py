@@ -33,12 +33,11 @@ class Graph:
         self.visited: set = set()
         self.graph: dict = {}
         for v in self.vtxts:
-            self.graph[v] = set()
+            self.graph[v] = list()
         for v1, v2 in self.edges:
-            self.graph[v1].add(v2)
+            self.graph[v1].append(v2)
 
     # Method for DFS traversal (using stack)
-
     def dfs(self):
         s = [list(self.graph.keys())[0]]
         while s:
