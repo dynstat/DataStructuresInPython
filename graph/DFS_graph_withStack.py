@@ -23,11 +23,32 @@ class Edge:
 
 
 class Graph:
-    def __init__(self, vertexes: List = [], edges: List = []):
+    def __init__(self, vertexes: List = None, edges: List = None):
+        if vertexes is None:
+            vertexes = []
+        if edges is None:
+            edges = []
         self.vtxts = vertexes
         self.edges = edges
+        self.visited: set = set()
+        self.graph: dict = {}
+        for v in self.vtxts:
+            self.graph[v] = set()
+        for v1, v2 in self.edges:
+            self.graph[v1].add(v2)
 
-    # Method for DFS traversal
+    # Method for DFS traversal (using stack)
+
+    def dfs(self):
+        s = [list(self.graph.keys())[0]]
+        while s:
+            top = s.pop()
+            if top not in self.visited:
+                print(top, end=" ")
+                self.visited.add(top)
+            for n in self.graph[top]:
+                if n not in self.visited:
+                    s.append(n)
 
 
 def traverse_graph(some_graph: Dict):
@@ -41,7 +62,7 @@ def traverse_graph(some_graph: Dict):
     while stack:
         top = stack.pop()
         if top not in visited:
-            print(top)
+            print(top, end=" ")
         visited.add(top)
         neighbors_list = some_graph[top]
         for neighbor in neighbors_list:
@@ -59,4 +80,11 @@ if __name__ == "__main__":
         "d": ["e"],
         "e": ["d"]
     }
+    print("Using global function: ", end="")
     traverse_graph(graph_elements)
+    print()
+    # or by creating an object while passing a graph in it
+    g1 = Graph(['a', 'b', 'c', 'd', 'e'], [
+               ('a', 'b'), ('a', 'c'), ('b', 'a'), ('b', 'd'), ('c', 'a'), ('c', 'd'), ('d', 'e'), ('e', 'd')])
+    print("Using class method dfs: ", end="")
+    g1.dfs()
