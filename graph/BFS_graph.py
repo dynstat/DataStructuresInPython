@@ -10,16 +10,36 @@ class Node:
 
 
 class Graph:
-    def __init__(self, someGraph: Node) -> None:
-        self.graph = someGraph
+    def __init__(self, someGraph: dict) -> None:
+        self.graph: dict = someGraph
         self.visited = set()  # empty set to store visited nodes
         # self.parent = {}
         # self.level = {}
 
     def bfs(self):
-        q = deque([self.graph])
+        # queue created with first key (Node) of the graph dictionary in it.
+        q = deque([list(self.graph.keys())[0]])
         while q:
             first = q.popleft()
+            # checking wether popped item is already visited or not, before printing.
             if first not in self.visited:
                 print(first)
-            self.visited.add(first)
+                self.visited.add(first)
+            # looping through all the neighbour nodes
+            for n in self.graph[first]:
+                if n not in self.visited:
+                    # appending the neighbour nodes at the end of queue
+                    q.append(n)
+
+
+if __name__ == "__main__":
+    my_graph = {
+        "a": ["b", "c"],
+        "b": ["a", "d"],
+        "c": ["a", "d"],
+        "d": ["e"],
+        "e": ["d"]
+    }
+
+    graph_obj = Graph(my_graph)
+    graph_obj.bfs()
