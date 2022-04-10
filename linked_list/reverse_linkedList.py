@@ -20,6 +20,15 @@ class LinkedList:
                 temp = temp.next
 
     def rev_linkedList(self):
+        current = self.head
+        previous = None
+        nxt = None
+        while current:
+            nxt = current.next
+            current.next = previous
+            previous = current
+            current = nxt
+        self.head = previous
 
 
 if __name__ == "__main__":
@@ -36,3 +45,5 @@ if __name__ == "__main__":
 
     list1.traverse()
     print("\n\n")
+    list1.rev_linkedList()
+    list1.traverse()
