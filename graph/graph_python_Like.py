@@ -3,7 +3,7 @@
 # Creating a Graph class
 class Graph:
     # constructor function which takes graph elements and edges as a dictionary
-    def __init__(self, graph_elem=None):
+    def __init__(self, graph_elem: dict = None):
         self.graph = {} if graph_elem is None else graph_elem
 
     # Function to print the edges (without repeating)
