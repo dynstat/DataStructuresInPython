@@ -8,9 +8,8 @@ class Node:
     def __repr__(self) -> str:
         return str(self.value)
 
+
 # 3 pointers (curr, prev, nxt), iterative method
-
-
 def rev_LL(head: Node):
     if head is None:
         return None
