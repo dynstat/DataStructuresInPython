@@ -76,7 +76,7 @@ if __name__ == "__main__":
         "e": ["d"]
     }
     print("Using global function: ", end="")
-    traverse_graph(graph_elements)
+    dfs_global(graph_elements)
     print()
     # or by creating an object while passing a graph in it
     g1 = Graph(['a', 'b', 'c', 'd', 'e'], [
