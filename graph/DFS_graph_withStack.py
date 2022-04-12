@@ -1,8 +1,4 @@
 # DFS using Stack
-
-from typing import Dict, List
-
-
 class vtx:
     def __init__(self, name):
         self.vtx_name = name
@@ -23,7 +19,7 @@ class Edge:
 
 
 class Graph:
-    def __init__(self, vertexes: List = None, edges: List = None):
+    def __init__(self, vertexes: list = None, edges: list = None):
         if vertexes is None:
             vertexes = []
         if edges is None:
