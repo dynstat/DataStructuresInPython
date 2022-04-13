@@ -21,6 +21,6 @@ def bubble_sort(arr: list):
 if __name__ == "__main__":
     unsorted_array = [4, 6, 1, 3, 9, 7, 5, 2]
     print("Given unsorted Array: ", unsorted_array)
-    # calling the insertion sort function
+    # calling the bubble_sort function
     sorted_array = bubble_sort(unsorted_array)
     print("Array after insertion sorting: ", sorted_array)
