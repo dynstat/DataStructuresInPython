@@ -2,10 +2,10 @@
 
 def bubble_sort(arr: list):
     arr_length = len(arr)
-    # a "swap_occured" variable to check if no swapping occured (i.e. the given array is already sorted)
+    # the "swap_occured" variable is to check if swapping occured or not (i.e. the given array is already sorted)
     # It will become True only when at least one swapping occured, this saves from unnecessary computation
-    swap_occured = False
     for i in range(arr_length):
+        swap_occured = False
         for j in range(arr_length - i-1):
             if arr[j] > arr[j+1]:
                 # swapping when a larger item is on its consecutive right
