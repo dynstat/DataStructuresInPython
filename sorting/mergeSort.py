@@ -1,9 +1,4 @@
 # Program to sort the given array using merge sort
-
-from heapq import merge
-from turtle import right
-
-
 def merge_sort(arr: list):
     if len(arr) <= 1:
         return
