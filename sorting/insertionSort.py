@@ -1,12 +1,13 @@
 # Program to sort a given array or list using insertion sort algorithm
 def insertion_sort(arr: list = None):
     for step in range(1, len(arr)):
+        # key is the second item in the list
         key = arr[step]
-        # left denotes the index of the left items of the key in every iteration in the loop...
+        # left denotes the index of the left item(s) of the key in every iteration in the loop...
         left = step-1
         # looping over all the items on the left of key as long as we find the number lesser than the key
         while left >= 0 and key < arr[left]:
-            # overwriting the larger item to its right index of the same array
+            # overwriting the larger items to their right indexes of the same array
             arr[left+1] = arr[left]
             left = left - 1
         arr[left+1] = key  # placing the key at the desired index
