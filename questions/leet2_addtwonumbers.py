@@ -27,6 +27,14 @@ def addnumbers(list1: ListNode, list2: ListNode):
     second_num = createNum(list2)
     total = first_num+second_num
     temp2 = None
+    if total == 0:
+        num = total % 10
+        total //= 10
+        if newhead is None:
+            newhead = ListNode(num)
+            temp2 = newhead
+        return newhead
+
     while total:
         num = total % 10
         total //= 10
@@ -52,22 +60,22 @@ def print_list(head):
 
 if __name__ == "__main__":
     # Nodes for the 1st linked list
-    l11 = ListNode(val=2)
-    l12 = ListNode(val=4)
-    l13 = ListNode(val=3)
+    l11 = ListNode(val=0)
+    # l12 = ListNode(val=4)
+    # l13 = ListNode(val=3)
 
     # Nodes for the 2nd linked list
-    l21 = ListNode(val=5)
-    l22 = ListNode(val=6)
-    l23 = ListNode(val=4)
+    l21 = ListNode(val=0)
+    # l22 = ListNode(val=6)
+    # l23 = ListNode(val=4)
     # 1st linked list
     head1 = l11
-    l11.nxt = l12
-    l12.nxt = l13
+    # l11.nxt = l12
+    # l12.nxt = l13
     # 2nd linked list
     head2 = l21
-    l21.nxt = l22
-    l22.nxt = l23
+    # l21.nxt = l22
+    # l22.nxt = l23
 
     the_new_head = addnumbers(head1, head2)
     print_list(the_new_head)
