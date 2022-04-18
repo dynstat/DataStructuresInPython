@@ -3,8 +3,8 @@ def merge_sort(arr: list):
     if len(arr) <= 1:
         return
 
-    end = len(arr)-1
     start = 0
+    end = len(arr)-1
     mid = (end-start)//2
 
     left_arr = arr[start:mid+1]
