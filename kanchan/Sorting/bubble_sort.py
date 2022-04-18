@@ -1,4 +1,3 @@
-# bubble sort algorithm to sort data
 
 def bubbleSort(arr):
 
