@@ -7,7 +7,7 @@ def bubble_sort(arr: list):
     for i in range(arr_length):
         swap_occured = False
         for j in range(arr_length - i-1):
-            if arr[j] > arr[j+1]:
+            if arr[j] > arr[j+1]:  # change to "<" for descending order
                 # swapping when a larger item is on its consecutive right
                 (arr[j], arr[j+1]) = (arr[j+1], arr[j])
                 swap_occured = True
