@@ -25,16 +25,19 @@ def addnumbers(list1: ListNode, list2: ListNode):
         return fullNumber
     first_num = createNum(list1)
     second_num = createNum(list2)
+    # total number after adding numbers from both the given linked lists
     total = first_num+second_num
     temp2 = None
+    # if both the list has element [0], [0] in them
     if total == 0:
         num = total % 10
         total //= 10
+        # just adding this Node with newhead
         if newhead is None:
             newhead = ListNode(num)
             temp2 = newhead
         return newhead
-
+    # joining rest of the nodes with the newhead using temp variable
     while total:
         num = total % 10
         total //= 10
@@ -45,6 +48,8 @@ def addnumbers(list1: ListNode, list2: ListNode):
         temp2.nxt = ListNode(num)
         temp2 = temp2.nxt
     return newhead
+
+# traverse function for the linkedList
 
 
 def print_list(head):
@@ -58,24 +63,25 @@ def print_list(head):
     print(None)
 
 
+# driver code
 if __name__ == "__main__":
     # Nodes for the 1st linked list
-    l11 = ListNode(val=0)
-    # l12 = ListNode(val=4)
-    # l13 = ListNode(val=3)
+    l11 = ListNode(val=2)
+    l12 = ListNode(val=4)
+    l13 = ListNode(val=3)
 
     # Nodes for the 2nd linked list
-    l21 = ListNode(val=0)
-    # l22 = ListNode(val=6)
-    # l23 = ListNode(val=4)
+    l21 = ListNode(val=5)
+    l22 = ListNode(val=6)
+    l23 = ListNode(val=4)
     # 1st linked list
     head1 = l11
-    # l11.nxt = l12
-    # l12.nxt = l13
+    l11.nxt = l12
+    l12.nxt = l13
     # 2nd linked list
     head2 = l21
-    # l21.nxt = l22
-    # l22.nxt = l23
+    l21.nxt = l22
+    l22.nxt = l23
 
     the_new_head = addnumbers(head1, head2)
     print_list(the_new_head)
