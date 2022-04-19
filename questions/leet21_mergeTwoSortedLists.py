@@ -21,9 +21,8 @@ class ListNode:
     def __repr__(self) -> str:
         return f"{str(self.val)} {id(self)}"
 
+
 # traverse function for the linkedList
-
-
 def print_list(head):
     if head is None:
         print("List is Empty !!")
