@@ -12,4 +12,4 @@ def bubbleSort(arr):
 
 if __name__ == "__main__":
     arr = [45, 5, 3, 8, 9, 4]
-    print(bubbleSort(arr))
+    print(bubble(arr))
