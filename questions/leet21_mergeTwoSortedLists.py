@@ -34,11 +34,12 @@ def print_list(head):
     print(None)
 
 
+# function to merge two given lists in sorted manner
 def list_merger(list1: ListNode, list2: ListNode):
-    newhead = None
-    temp1 = list1
-    temp2 = list2
-    newhead_temp = newhead
+    newhead = None  # to keep track of the first node of the modified list
+    temp1 = list1  # to traverse through each node of the list1
+    temp2 = list2  # to traverse through each node of the list2
+    newhead_temp = newhead  # newhead_temp is to modify and merge the two lists as required
     while temp1 and temp2:
         if temp1.val <= temp2.val:
             if newhead is None:
@@ -46,6 +47,7 @@ def list_merger(list1: ListNode, list2: ListNode):
                 newhead_temp = newhead
             else:
                 newhead_temp.nxt = temp1
+                # the line below is to move to the next node only after comparing and modifing
                 newhead_temp = newhead_temp.nxt
             temp1 = temp1.nxt
         else:
@@ -56,8 +58,8 @@ def list_merger(list1: ListNode, list2: ListNode):
                 newhead_temp.nxt = temp2
                 newhead_temp = newhead_temp.nxt
             temp2 = temp2.nxt
-        # if newhead_temp.nxt:
-        #     newhead_temp = newhead_temp.nxt
+
+    # to connect the remaining list as it is by joining to the first "not traversed" node of the list
     if temp1:
         newhead_temp.nxt = temp1
     elif temp2:
