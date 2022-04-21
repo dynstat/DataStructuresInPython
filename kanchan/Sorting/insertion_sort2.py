@@ -1,5 +1,4 @@
 # program to sort the given array using insertion sort
-
 def insertion_sort(arr: list):
     for i in range(1, len(arr)):
         key = arr[i]
@@ -19,5 +18,5 @@ def insertion_sort(arr: list):
 
 if __name__ == "__main__":
     unsorted_array = [6, 3, 5, 4, 2]
-    sorted_array = insertion_sort(unsorted_array)
+    sorted_array = i(unsorted_array)
     print(f"array after sorting is: {sorted_array}")

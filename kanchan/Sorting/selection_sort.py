@@ -15,6 +15,9 @@ def selectionSort(arr: list):
     return arr
 
 
+
+
+
 if __name__ == "__main__":
     print("before sorting")
     arr = [6, 3, 2, 4, 1, 0]
