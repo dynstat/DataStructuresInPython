@@ -10,7 +10,7 @@ class graph:
                 if (value, key) not in edge_ki_list:
                     edge_ki_list.append((key, value))
         return edge_ki_list
-
+    # method to add edges
     def add_edges(self, edges: tuple = None):  # (f,g)
         v1, v2 = edges
         if v1 not in self.graph:
