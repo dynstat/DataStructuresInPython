@@ -27,8 +27,8 @@ class LinkedList:
                 return True
             temp = temp.next
         return False
-    # using two pointer method
 
+    # using two pointer method
     def is_Cyclic(self):
         if self.head is None:
             return False
@@ -47,6 +47,7 @@ class LinkedList:
         return False
 
 
+# driver code
 if __name__ == "__main__":
     Node1 = Node(3)
     Node2 = Node(2)
