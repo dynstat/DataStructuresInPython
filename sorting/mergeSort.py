@@ -6,7 +6,7 @@ def merge_sort(arr: list):
     start = 0
     end = len(arr)-1
     mid = (end-start)//2
-
+    # splitting the arr into two parts
     left_arr = arr[start:mid+1]
     # "end+1" because end position is not included in slicing
     right_arr = arr[mid+1:end+1]
