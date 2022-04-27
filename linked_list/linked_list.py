@@ -1,14 +1,5 @@
 # linked list
 
-# In C language, we will use struct to create a node
-# struct node
-# {
-#     int data;
-#     struct node* Next;
-# };
-
-# In python, we use classes
-# creates a node
 class Node:
     def __init__(self, data):
         self.data = data
