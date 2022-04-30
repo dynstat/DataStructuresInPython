@@ -25,6 +25,8 @@ def rev_LL(head: Node):
         curr = nxt
     return prev  # returning the last Node as it will be the starting point of this reversed linked list
 
+# traverse function
+
 
 def traverse(head: Node):
     temp = head
@@ -34,6 +36,7 @@ def traverse(head: Node):
     print()
 
 
+# driver code
 if __name__ == "__main__":
     the_head = None
     # creating Nodes using Node class
