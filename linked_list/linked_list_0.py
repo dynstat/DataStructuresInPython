@@ -6,7 +6,7 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-        self.head = None
+        self.head:Node = None
 
     def print_list(self):
         if self.head is None:
@@ -14,7 +14,9 @@ class LinkedList:
             return
         temp = self.head
         while(temp != None):
-            print(temp.data)
+            print(f"{temp.data}",end='')
+            if temp.next is not None:
+                print("->",end='')
             temp = temp.next
 
     def add_last(self, val):
@@ -40,3 +42,4 @@ if __name__ == "__main__":
     list1.head = one
     one.next = two
     two.next = three
+    list1.print_list()
