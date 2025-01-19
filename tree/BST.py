@@ -43,34 +43,31 @@ def inorder(r):
         if r is None:
             return "empty"
         print_tree(r.left)
-        print(r.data, end=' ')
+        print(r.data, end=" ")
         print_tree(r.right)
+
     if print_tree(r) == "empty":
         print("List is empty!!")
 
 
 # a function to check whether the given tree is a BST or not
 def check_BST(root):
-    # Wether the tree is empty or not
-    if root is None:
-        return True
-    # check if  leaf Node i.e. the node without any child
-    if root.left is None and root.right is None:
-        # for debugging
-        return True
-    # check if the Node has only left child
-    if root.left is not None and root.right is None:
-        if root.left.data < root.data:
-            return check_BST(root.left)
-    # check if the Node has only right child
-    if root.right is not None and root.left is None:
-        if root.right.data > root.data:
-            return check_BST(root.right)
-    # two children confirmed, so check if left child data is lesser than root and right child data is greater than root
-    if root.left.data < root.data and root.right.data > root.data:
-        return(check_BST(root.left) and check_BST(root.right))
+    def is_bst_util(node, min_val=float("-inf"), max_val=float("inf")):
+        # Empty tree is a valid BST
+        if node is None:
+            return True
 
-    return False
+        # Check if current node's value is within valid range
+        if node.data <= min_val or node.data >= max_val:
+            return False
+
+        # Recursively check left subtree (must be less than current node)
+        # and right subtree (must be greater than current node)
+        return is_bst_util(node.left, min_val, node.data) and is_bst_util(
+            node.right, node.data, max_val
+        )
+
+    return is_bst_util(root)
 
 
 # main driver code
