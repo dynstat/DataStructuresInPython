@@ -18,9 +18,23 @@ class BST(BaseModel):
             return
         if node.left:
             BST.inorder(node.left)
-        print(node.value)
+        print(node.value, end=" ")
         if node.right:
             BST.inorder(node.right)
+
+    def inorder_iterative(self, node: Optional["Node"] = None):
+        print()
+        if node is None:
+            return
+        stack = []
+        current = node
+        while stack or current:
+            while current:
+                stack.append(current)
+                current = current.left
+            current = stack.pop()
+            print(current.value, end=" ")
+            current = current.right
 
 
 if __name__ == "__main__":
@@ -42,3 +56,4 @@ if __name__ == "__main__":
 
     bst = BST(root=root)
     BST.inorder(bst.root)
+    bst.inorder_iterative(bst.root)
