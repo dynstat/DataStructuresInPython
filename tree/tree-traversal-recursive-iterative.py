@@ -9,6 +9,7 @@ class Node(BaseModel):
 
 
 class BST(BaseModel):
+    # In pydantic, this is not a class attr, it is an instance attribute.
     root: Optional["Node"] = None
 
     # method of traversing the tree
@@ -35,13 +36,33 @@ class BST(BaseModel):
         # therefore, since we are not printing or using the node values in the same order in which we are adding/appending them,
         # we need to use stack
         stack = []
-        while current or stack:
+        while stack or current:
             while current:
                 stack.append(current)
                 current = current.left
             current = stack.pop()
             print(f"{current.value}", end=" ")
             current = current.right
+
+    def preorder(self, node: Optional["Node"]):
+        if node is None:
+            return
+        print(f"{node.value}", end=" ")
+        self.preorder(node.left)
+        self.preorder(node.right)
+
+    def preorder_iterative(self, node: Optional["Node"]):
+        print()  ## next line character for separation of result
+        stack = [node]
+
+        while stack:
+            current = stack.pop()
+            print(f"{current.value}", end=" ")
+
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
 
 
 if __name__ == "__main__":
@@ -62,5 +83,7 @@ if __name__ == "__main__":
     root.right.right = Node(value=80)
 
     bst = BST(root=root)
-    BST.inorder(bst.root)
-    bst.inorder_iterative(bst.root)
+    # BST.inorder(bst.root)
+    # bst.inorder_iterative(bst.root)
+    bst.preorder(root)
+    bst.preorder_iterative(root)
