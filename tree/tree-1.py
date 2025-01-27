@@ -24,16 +24,23 @@ class BST(BaseModel):
 
     def inorder_iterative(self, node: Optional["Node"] = None):
         print()
+        # if the root node is None, no need to traverse, simply return
         if node is None:
             return
-        stack = []
+
+        # to traverse, the current is a temp node to be used.
         current = node
-        while stack or current:
+        # STACK data structure is being used as we will be appending some other (right node) values after appending root node
+        # (and before the other parent nodes wich we were already appended to the stack).
+        # therefore, since we are not printing or using the node values in the same order in which we are adding/appending them,
+        # we need to use stack
+        stack = []
+        while current or stack:
             while current:
                 stack.append(current)
                 current = current.left
             current = stack.pop()
-            print(current.value, end=" ")
+            print(f"{current.value}", end=" ")
             current = current.right
 
 
