@@ -64,6 +64,15 @@ class BST(BaseModel):
             if current.left:
                 stack.append(current.left)
 
+    def postorder(self, node: Optional["Node"]):  # left right ROOT
+        # BASE CASE
+        if node is None:
+            return
+
+        self.postorder(node.left)
+        self.postorder(node.right)
+        print(f"{node.value}", end=" ")
+
 
 if __name__ == "__main__":
     # Constructing the BST:
@@ -85,5 +94,6 @@ if __name__ == "__main__":
     bst = BST(root=root)
     # BST.inorder(bst.root)
     # bst.inorder_iterative(bst.root)
-    bst.preorder(root)
-    bst.preorder_iterative(root)
+    # bst.preorder(root)
+    # bst.preorder_iterative(root)
+    bst.postorder(root)
