@@ -73,6 +73,32 @@ class BST(BaseModel):
         self.postorder(node.right)
         print(f"{node.value}", end=" ")
 
+    def postorder_iterative(self, node: Optional["Node"]):
+        print()
+        # Here, the "node" is a ROOT node.
+        if not node:
+            return
+        stack = [
+            (node, False)
+        ]  # while appending the node to the stack, we are adding additional information which is "visited"
+
+        # looping as long as the stack is not Empty. (different from the inorder traversal where the stack could be empty in between)
+        while stack:
+            curr, visited = (
+                stack.pop()
+            )  # popping the topmost node and then we check if it exists and visited or not.
+            if curr:
+                if visited:
+                    print(
+                        f"{curr.value}", end=" "
+                    )  # print the node after popping, if visited.
+                else:
+                    # else make it marked as "visited", which means that this node's left and the right nodes have been added to the
+                    # stack. Check the order in which they are added (in reverse), so that it follows POSTORDER (left right ROOT).
+                    stack.append((curr, True))
+                    stack.append((curr.right, False))
+                    stack.append((curr.left, False))
+
 
 if __name__ == "__main__":
     # Constructing the BST:
@@ -97,3 +123,4 @@ if __name__ == "__main__":
     # bst.preorder(root)
     # bst.preorder_iterative(root)
     bst.postorder(root)
+    bst.postorder_iterative(root)
