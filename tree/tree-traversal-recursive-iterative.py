@@ -99,6 +99,31 @@ class BST(BaseModel):
                     stack.append((curr.right, False))
                     stack.append((curr.left, False))
 
+    def postorder_iterative2(self, node: Optional["Node"]):
+        print()
+        if not node:
+            return
+
+        # Using two stacks - stack1 for processing nodes, stack2 for storing result
+        stack1 = [node]
+        stack2 = []
+
+        # First, process nodes in (ROOT->RIGHT->LEFT) order into stack2
+        while stack1:
+            current = stack1.pop()
+            stack2.append(current)
+
+            # Push left first so it gets processed after right
+            if current.left:
+                stack1.append(current.left)
+            if current.right:
+                stack1.append(current.right)
+
+        # Print from stack2 to get (LEFT->RIGHT->ROOT) order
+        while stack2:
+            node = stack2.pop()
+            print(f"{node.value}", end=" ")
+
 
 if __name__ == "__main__":
     # Constructing the BST:
