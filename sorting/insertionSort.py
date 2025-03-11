@@ -16,9 +16,7 @@ def insertion_sort(arr: list = None):
 
 def insertion_sort_optimized(arr: list = None) -> list:
     # Handle edge cases
-    if arr is None:
-        return []
-    if len(arr) <= 1:
+    if arr is None or len(arr) <= 1:
         return arr
         
     for step in range(1, len(arr)):
