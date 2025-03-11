@@ -47,3 +47,8 @@ if __name__ == "__main__":
     # calling the insertion sort function
     sorted_array = insertion_sort(unsorted_array)
     print("Array after insertion sorting: ", sorted_array)
+    
+    # calling the optimized insertion sort function
+    sorted_array = insertion_sort_optimized(unsorted_array)
+    print("Array after optimized insertion sorting: ", sorted_array)
+
