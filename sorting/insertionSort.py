@@ -14,6 +14,33 @@ def insertion_sort(arr: list = None):
 
     return arr
 
+def insertion_sort_optimized(arr: list = None) -> list:
+    # Handle edge cases
+    if arr is None:
+        return []
+    if len(arr) <= 1:
+        return arr
+        
+    for step in range(1, len(arr)):
+        key = arr[step]
+        # Use binary search to find the insertion position
+        left, right = 0, step - 1
+        
+        # Binary search to find insertion position
+        while left <= right:
+            mid = (left + right) // 2
+            if arr[mid] > key:
+                right = mid - 1
+            else:
+                left = mid + 1
+                
+        # Shift elements to make room for the key
+        for i in range(step - 1, left - 1, -1):
+            arr[i + 1] = arr[i]
+            
+        arr[left] = key
+
+    return arr
 
 # driver code
 if __name__ == "__main__":
