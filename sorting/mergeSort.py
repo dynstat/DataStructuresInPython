@@ -4,12 +4,12 @@ def merge_sort(arr: list):
         return
 
     start = 0
-    end = len(arr)-1
-    mid = (end-start)//2
+    end = len(arr) - 1
+    mid = (end - start) // 2
     # splitting the arr into two parts
-    left_arr = arr[start:mid+1]
+    left_arr = arr[start : mid + 1]
     # "end+1" because end position is not included in slicing
-    right_arr = arr[mid+1:end+1]
+    right_arr = arr[mid + 1 : end + 1]
 
     merge_sort(left_arr)
     merge_sort(right_arr)
@@ -41,5 +41,5 @@ if __name__ == "__main__":
     unsorted_array = [4, 6, 1, 3, 9, 7, 5, 2]
     print("Given unsorted Array: ", unsorted_array)
     # calling the merge sort function
-    sorted_array = merge_sort(unsorted_array)
-    print("Array after merge sort: ", sorted_array)
+    sorted_array = merge_sort(unsorted_array)  # merge sort array sorts in place
+    print("Array after merge sort: ", unsorted_array, " ", sorted_array)
