@@ -31,7 +31,8 @@ def insertion_sort_optimized(arr: list = None) -> list:
 
     for step in range(1, len(arr)):
         curr_val = arr[step]
-        # Use binary search to find the insertion position
+        # Use binary search to find the insertion position.
+        # left and right denote the indices of the logical subarray to the left of the step value of the index.
         left, right = 0, step - 1
 
         # Binary search to find insertion position
@@ -53,11 +54,11 @@ def insertion_sort_optimized(arr: list = None) -> list:
 
 # driver code
 if __name__ == "__main__":
-    unsorted_array = [4, 6, 1, 3, 9, 7, 5, 2]
+    unsorted_array = [8, 6, 1, 3, 9, 7, 5, 2]
     print("Given unsorted Array: ", unsorted_array)
     # calling the insertion sort function
-    sorted_array = insertion_sort(unsorted_array)
-    print("Array after insertion sorting: ", sorted_array)
+    # sorted_array = insertion_sort(unsorted_array)
+    # print("Array after insertion sorting: ", sorted_array)
 
     # calling the optimized insertion sort function
     sorted_array = insertion_sort_optimized(unsorted_array)
